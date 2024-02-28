@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
+import Mainlogo from "../../Assets/mainLogo.png";
 import "./Slider.css";
 
 const Slider = () => {
@@ -65,7 +66,7 @@ const Slider = () => {
     } catch (error) {
       console.error('Error uploading audio file:', error);
     } finally {
-      setLoading(false); // Stop loading spinner after response
+      setLoading(false);
     }
   };
 
@@ -81,7 +82,7 @@ const Slider = () => {
         onClick={handleButtonClick}
         disabled={waveActive}
       >
-        AUDIO
+        Audio
       </Button>
       {waveActive && (
         <Button

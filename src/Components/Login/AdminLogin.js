@@ -2,7 +2,7 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./AdminLogin.css";
-import Logo from "../../Assets/logo.png";
+import Logo from "../../Assets/logo.png"
 import Facebook from "../../Assets/fb.png";
 import Google from "../../Assets/g.png";
 import Twitter from "../../Assets/x.png";
