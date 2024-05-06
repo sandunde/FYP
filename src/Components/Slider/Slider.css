@@ -15,9 +15,14 @@
   border-radius: 100px;
 }
 
+.input-field{
+  margin: 0 auto;
+  width: 600px;
+}
+
 @keyframes wave-animation {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7), 0 0 0 0 rgba(0, 123, 255, 0.7);
+    box-shadow: 0 0 0 0 rgba(166, 0, 192, 0.7), 0 0 0 0 rgba(166, 0, 192, 0.7);
   }
 
   100% {
@@ -39,3 +44,11 @@
   display: block;
   margin: 10px auto;
 }
+
+.switch-class {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40px;
+}
+

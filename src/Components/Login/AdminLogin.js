@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./AdminLogin.css";
@@ -12,10 +12,22 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
     const navigate = useNavigate();
     const handleLogin = () =>{
-        navigate("/home")
+        navigate("/admin")
     }
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    }
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const isDisabled = (email.trim() === '' && password.trim() === '');
+
     return (
         <div className="login-wrapper">
             <Row className="h-100">
@@ -41,6 +53,7 @@ const AdminLogin = () => {
                                         type="email"
                                         placeholder="Email"
                                         className="custom-width-input"
+                                        onChange={handleEmailChange}
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
@@ -48,6 +61,7 @@ const AdminLogin = () => {
                                         type="password"
                                         placeholder="Password"
                                         className="custom-width-input"
+                                        onChange={handlePasswordChange}
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -61,6 +75,7 @@ const AdminLogin = () => {
                                     type="submit"
                                     className="custom-width-input"
                                     onClick={handleLogin}
+                                    disabled={isDisabled}
                                 >
                                     SIGN IN
                                 </Button>

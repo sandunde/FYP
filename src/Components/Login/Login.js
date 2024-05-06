@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Login.css";
@@ -13,9 +13,20 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const handleLogin = () => {
         navigate("/home");
     };
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    }
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const isDisabled = (email.trim() === '' && password.trim() === '');
+
     return (
         <div className="login-wrapper">
             <Row className="h-100">
@@ -41,6 +52,7 @@ const Login = () => {
                                         type="email"
                                         placeholder="Email"
                                         className="custom-width-input"
+                                        onChange={handleEmailChange}
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
@@ -48,6 +60,7 @@ const Login = () => {
                                         type="password"
                                         placeholder="Password"
                                         className="custom-width-input"
+                                        onChange={handlePasswordChange}
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -61,6 +74,7 @@ const Login = () => {
                                     type="submit"
                                     className="custom-width-input"
                                     onClick={handleLogin}
+                                    disabled={isDisabled}
                                 >
                                     SIGN IN
                                 </Button>
